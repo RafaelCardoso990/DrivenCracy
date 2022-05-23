@@ -2,21 +2,22 @@
 import db from "../db.js";
 
 export async function authPostPoll (req, res, next){
-    let {title} = req.body
+    let {title, expireAt} = req.body
 
-    if(!title){
-        return res.sendStatus(422)
-    };
-   
+    
+    
+    if(title == ""){
+        res.sendStatus(422)
+    }
+       
+    console.log(expireAt)
 
     next();
     
 }
 
 
-export async function authPostPollChoice (req, res, next){
-    const requicion = req.body
-
+export async function authPostPollChoice (req, res, next){    
     try{
         const polls = await db.collection("poll").find({}).toArray()
         

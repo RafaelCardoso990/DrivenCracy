@@ -6,7 +6,7 @@ import { authPostChoice } from "../middlewares/choiceMiddleware.js";
 
 const choiceRouter = Router();
 
-choiceRouter.post("/choice", authPostChoice ,setChoice);
-choiceRouter.post("/choite/:id/vote", authPostChoice, setVote)
+choiceRouter.post("/choice" ,setChoice);
+choiceRouter.post("/choice/:id/vote", authPostChoice, setVote)
 
 export default choiceRouter;

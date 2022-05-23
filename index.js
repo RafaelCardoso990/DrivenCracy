@@ -9,6 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(json())
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", 'https://driven-cracy.herokuapp.com/');
     res.header("Access-Control-Allow-Credentials", true);

@@ -1,34 +1,28 @@
+import { ObjectId } from "mongodb";
 import db from "../db.js";
 
 export async function authPostChoice (req, res, next){
-    const request = req.body
+        const { id } = req.params       
+        console.log(id)
+       try{
+           
+        const choice = await db.collection("choice").findOne({poolId: id})
+       
 
-    try{
-        const polls = await db.collection("poll").find({}).toArray()
-        
-        if (!polls){
+        if (!choice){
             return res.sendStatus(404)
-        }
-
-        if (title == ""){
-            return res.sendStatus(422)
-        }
-
-        const exist = await db.collection("choice").findOne(request.title)
-
-        if(exist){
-            return res.sendStatus(409)
-        }
-
-        const expireAt = await db.collection("poll").findOne(request.expireAt)
-
-        if(expireAt > dayjs().add(30, "day").format("YYYY-MM-DD HH:mm")){
-            return res.sendStatus(403)
-        }
-
-    } catch (error){
+        }  
         
-        return res.status(500).send(error)
+        const polls = await db.collection("poll").findOne({_id: new ObjectId(id)})
+  
+        
+        // if(polls.expireAt > polls.expireAt.add(30, 'day')){
+        //     return res.sendStatus(403)
+        // }      
+        
+        console.log("passei")  
+    } catch (error){        
+        return res.status(500)
     }
     next();
     
