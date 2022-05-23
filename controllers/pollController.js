@@ -14,8 +14,8 @@ export async function setPoll(req, res){
         await db.collection("poll").insertOne(title, expireAt)
         res.status(201).send("Enquete cadastrada com sucesso.")
     } catch(error){
-        console.log(error)
-        return res.sendStatus(500)
+      
+        return res.sendStatus(500).send(error)
     }
 }
 

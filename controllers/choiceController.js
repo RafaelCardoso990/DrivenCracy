@@ -10,7 +10,7 @@ export async function setChoice(req, res) {
         res.status(201).send("Opção cadastrada com sucesso")
     } catch (e) {
         console.log(e)
-        return res.sendStatus(500)
+        return res.sendStatus(500).send(e)
     }
 }
 

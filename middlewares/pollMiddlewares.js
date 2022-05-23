@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+
 import db from "../db.js";
 
 export async function authPostPoll (req, res, next){

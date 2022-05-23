@@ -27,8 +27,8 @@ export async function authPostChoice (req, res, next){
         }
 
     } catch (error){
-        console.log(error)
-        return res.sendStatus(500)
+        
+        return res.status(500).send(error)
     }
     next();
     
