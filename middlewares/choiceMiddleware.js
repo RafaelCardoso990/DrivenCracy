@@ -1,6 +1,6 @@
 import db from "../db.js";
 
-export default async function authPostChoice (req, res, next){
+export async function authPostChoice (req, res, next){
     const request = req.body
 
     try{

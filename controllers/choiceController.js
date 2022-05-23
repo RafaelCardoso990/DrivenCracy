@@ -1,7 +1,6 @@
 import { ObjectId } from "mongodb";
 import db from "../db.js";
 
-import expireAt from "../controllers/choiceControllers.js"
 
 export async function setChoice(req, res) {
     const { title, poolId } = req.body

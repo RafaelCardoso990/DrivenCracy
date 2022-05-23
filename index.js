@@ -22,6 +22,6 @@ app.use(pollRouter)
 app.use(choiceRouter)
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`Server listening on ${process.env.PORT}`)
 });
